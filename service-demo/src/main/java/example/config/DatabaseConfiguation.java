@@ -16,7 +16,7 @@ public class DatabaseConfiguation {
 	@Bean
 	public DataSource dataSource(){
 		
-		PooledDataSource dataSource = new PooledDataSource("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/world", "root", "1234"); 
+		PooledDataSource dataSource = new PooledDataSource("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/world", "root", "1234");
 		return dataSource;
 		
 	}
