@@ -16,6 +16,8 @@
 	<modules>
 		<module>springmvc-demo</module>
 		<module>service-demo</module>
+		<module>spring-guides</module>
+		<module>mybatis-guides</module>
 	</modules>
 	
 	<dependencies>

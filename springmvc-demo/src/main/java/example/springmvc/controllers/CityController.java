@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 import example.world.domain.City;
 import example.world.mapper.CityMapper;
 
-@RestController
-@RequestMapping("cities")
+//@RestController
+//@RequestMapping("cities")
 public class CityController extends BaseController<City, CityMapper>{
 	
 	@RequestMapping("{id}")
 	City get(@PathVariable int id){
 		System.out.println("CityController.get()");
-		return service.get(id);
+//		return service.get(id);
+		return null;
 	}
 	
 }
