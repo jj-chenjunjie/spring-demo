@@ -8,6 +8,8 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 @Configuration
 @MapperScan("example.world.mapper")
@@ -26,6 +28,7 @@ public class DatabaseConfiguation {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource);
 		sqlSessionFactoryBean.setTypeAliasesPackage("example.world.domain");
+		sqlSessionFactoryBean.setMapperLocations(new Resource[]{new ClassPathResource("classpath*:mybatis/mapper/*.xml")});
 		return sqlSessionFactoryBean.getObject();
 	}
 	

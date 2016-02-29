@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="example.mybatis.mapper.CityMapper">
+
+	<resultMap type="City" id="CityResult">
+		<association property="country" column="countrycode" javaType="Country" select="example.mybatis.mapper.CountryMapper.selectCountry"></association>
+	</resultMap>
+	
+	<select id="selectCities" resultType="City">
+		select * from city
+<!-- 		<where>
+			<if test="country.code != null and country.code !=''">
+				CountryCode = #{country.code}
+			</if>
+		</where> -->
+	</select>
+	
+	<select id="selectCitiesForCountry" resultMap="CityResult">
+		select * from city where countrycode = #{countrycode}
+	</select>
+
+</mapper>
