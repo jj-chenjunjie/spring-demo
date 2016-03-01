@@ -7,7 +7,7 @@
 	</resultMap>
 	
 	<select id="selectCities" resultType="City">
-		select * from city
+		select * from City
 <!-- 		<where>
 			<if test="country.code != null and country.code !=''">
 				CountryCode = #{country.code}
