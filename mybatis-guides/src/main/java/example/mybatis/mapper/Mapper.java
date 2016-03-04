@@ -9,4 +9,5 @@ public interface Mapper<T> {
 	
 	List<Map<String, Object>> findAll();
 	
+	List<T> list();
 }

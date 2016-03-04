@@ -5,7 +5,10 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import example.mybatis.mapper.GenericMapper;
 import example.mybatis.mapper.Mapper;
@@ -37,17 +40,21 @@ public class Service<T> implements Mapper<T>{
 		return null;
 	}
 
+	@Resource(name="genericMapper")
+	private GenericMapper<T> genericMapper;
+
+
+	@Override
+	public List<T> list() {
+		System.out.println("Service.list()");
+		
+		return this.genericMapper.findAll(tableName);
+	}
+
 	@Override
 	public List<Map<String, Object>> findAll() {
 		// TODO Auto-generated method stub
-		System.out.println("Service.findAll()");
-		MapperParameter parameter = new MapperParameter();
-		parameter.setTableName(tableName);
-		return this.genericMapper.findAll(parameter);
+		return null;
 	}
-	
-
-	@Autowired
-	private GenericMapper<T> genericMapper;
 	
 }	

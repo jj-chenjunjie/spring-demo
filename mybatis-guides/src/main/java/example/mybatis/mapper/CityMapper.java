@@ -6,11 +6,10 @@ import org.apache.ibatis.annotations.Select;
 
 import example.mybatis.domain.City;
 
-public interface CityMapper extends Mapper<City>{
+public interface CityMapper {
 	
 	@Select("select * from city where id = #{id}")
-	City getCity(int id);
+	City selectOne(int id);
 	
 	List<City> selectCities();
-	
 }
